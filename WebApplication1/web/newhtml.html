@@ -1,0 +1,56 @@
+
+<html>
+<head>
+    <title>Mouse Events Example</title>
+    <script type="text/javascript">
+        var table = document.getElementsByTagName("table")[0];
+var tbody = table.getElementsByTagName("tbody")[0];
+tbody.onclick = function (e) {
+    e = e || window.event;
+    var data = [];
+    var target = e.srcElement || e.target;
+    while (target && target.nodeName !== "TR") {
+        target = target.parentNode;
+    }
+    if (target) {
+        var cells = target.getElementsByTagName("td");
+        for (var i = 0; i < cells.length; i++) {
+            data.push(cells[i].innerHTML);
+        }
+    }
+    alert(data);
+};
+    </script>
+</head>
+<body>
+  <table class='list'>
+    <thead>
+        <tr>
+            <th class='tech'>OCB</th>
+            <th class='area'>Area</th>
+            <th class='name'>Name</th>
+            <th class='cell'>Cell #</th>
+            <th class='nick'>Nickname</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>275</td>
+            <td>Layton Installation</td>
+            <td>Benjamin Lloyd</td>
+            <td>(801) 123-456</td>
+            <td>Ben</td>
+        </tr>
+        
+        <tr>
+            <td>276</td>
+            <td>Layton Installation</td>
+            <td>Benjamin Lloyd</td>
+            <td>(801) 123-456</td>
+            <td>Ben</td>
+        </tr>
+    </tbody>
+</table>  
+</body>
+
+</html>
